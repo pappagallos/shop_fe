@@ -6,7 +6,7 @@ import { signIn } from "./actions";
 
 export default function SignIn() {
   const router = useRouter();
-  const [_, formAction, pending] = useActionState(signIn);
+  const [state, formAction, pending] = useActionState(signIn);
 
   return (
     <>
@@ -21,6 +21,10 @@ export default function SignIn() {
             지금 로그인하고 오늘 배송 받아보세요.
           </h2>
         </div>
+
+        <p className="sm:mx-auto sm:w-full sm:max-w-sm mt-6 text-center text-red-500">
+          {state?.message}
+        </p>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form action={formAction} className="space-y-6">
